@@ -1,0 +1,287 @@
+body {
+    /* Ganti 'berkode razer.jpg' dengan path atau URL gambar Anda */
+    /* Pastikan gambar ini ada di folder yang sama atau sesuaikan path-nya */
+    background: url('foto/background1.jpg') no-repeat center center fixed;
+    /* Jika gambar ada di folder 'images', gunakan: url('images/berkode razer.jpg') */
+    /* Jika sudah di-hosting, gunakan URL lengkapnya: url('https://example.com/berkode_razer.jpg') */
+
+    -webkit-background-size: cover; /* Untuk kompatibilitas browser lama */
+    -moz-background-size: cover;    /* Untuk kompatibilitas browser lama */
+    -o-background-size: cover;      /* Untuk kompatibilitas browser lama */
+    background-size: cover;         /* Memastikan gambar menutupi seluruh area */
+
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #e0e0e0; /* Warna teks umum */
+    line-height: 1.6;
+    background-color: #000; /* Warna fallback jika gambar tidak dimuat */
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Latar belakang semi-transparan untuk konten utama agar teks lebih mudah dibaca di atas gambar */
+    border-radius: 8px;
+    padding-bottom: 30px;
+}
+
+header {
+    background-color: rgba(30, 30, 30, 0.9); /* Header yang lebih gelap */
+    color: #fff;
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    border-top-left-radius: 8px; /* Sudut melengkung untuk container, bukan header secara terpisah */
+    border-top-right-radius: 8px; /* Ini akan diterapkan pada container jika header di dalamnya */
+}
+
+header h1 {
+    margin: 0;
+    float: left;
+    font-size: 1.8rem;
+    color: #00FF00; /* Hijau Razer */
+}
+
+header nav {
+    float: right;
+}
+
+header nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+header nav ul li {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: #00FF00; /* Hover hijau Razer */
+}
+
+/* Clearfix for header */
+header .container::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+main {
+    padding: 40px 0;
+}
+
+section {
+    background-color: rgba(30, 30, 30, 0.8); /* Background section semi-transparan */
+    padding: 40px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 255, 0, 0.1); /* Shadow hijau tipis */
+}
+
+section h2 {
+    text-align: center;
+    color: #00FF00; /* Judul hijau Razer */
+    margin-bottom: 30px;
+    font-size: 2.2rem;
+}
+
+#hero {
+    text-align: center;
+    background: linear-gradient(to right, #002200, #004400); /* Gradient hijau gelap */
+    color: #fff;
+    padding: 80px 40px;
+    border-radius: 8px;
+    box-shadow: 0 8px 15px rgba(0, 255, 0, 0.2); /* Shadow hijau lebih kuat */
+}
+
+#hero h2 {
+    color: #00FF00;
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+#hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #00FF00; /* Tombol hijau Razer */
+    color: #000; /* Teks hitam pada tombol hijau */
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn:hover {
+    background-color: #00AA00; /* Hover hijau lebih gelap */
+    transform: translateY(-2px);
+}
+
+.game-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    justify-content: center;
+}
+
+.game-card {
+    background-color: rgba(30, 30, 30, 0.9); /* Background card semi-transparan */
+    border: 1px solid #222;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 255, 0, 0.05); /* Shadow hijau tipis */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 255, 0, 0.1); /* Shadow hijau lebih kuat */
+}
+
+.game-card img {
+    max-width: 100%;
+    height: 150px;
+    object-fit: contain;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.game-card h3 {
+    color: #00FF00;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+.btn-select-game {
+    background-color: #00FF00; /* Tombol pilih game hijau Razer */
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.btn-select-game:hover {
+    background-color: #00AA00; /* Hover hijau lebih gelap */
+}
+
+#top-up-form .form-group {
+    margin-bottom: 20px;
+}
+
+#top-up-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #fff;
+}
+
+#top-up-form input[type="text"],
+#top-up-form select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #222;
+    background-color: #111; /* Input background gelap */
+    color: #fff; /* Teks input putih */
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+#top-up-form input[type="text"]::placeholder {
+    color: #777;
+}
+
+#top-up-form input[type="text"]:focus,
+#top-up-form select:focus {
+    outline: none;
+    border-color: #00FF00; /* Border focus hijau Razer */
+    box-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+}
+
+/* Gaya untuk input metode pembayaran yang hanya display (bukan select) */
+.read-only-input {
+    background-color: #1a1a1a !important; /* Latar belakang lebih gelap */
+    color: #00FF00 !important; /* Teks hijau Razer */
+    font-weight: bold;
+    text-align: center;
+    cursor: default; /* Menunjukkan bahwa tidak bisa diubah */
+}
+
+/* Gaya untuk kontainer gambar QRIS */
+.qris-container {
+    text-align: center;
+    margin-top: 25px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7); /* Background gelap transparan */
+    border-radius: 8px;
+    border: 1px solid #00FF00; /* Border hijau Razer */
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.3); /* Cahaya hijau */
+}
+
+.qris-image {
+    max-width: 200px; /* Ukuran maksimal gambar QRIS */
+    height: auto;
+    border: 5px solid #fff; /* Border putih untuk QRIS */
+    border-radius: 8px;
+    margin: 15px 0;
+    display: block; /* Agar bisa di-center dengan margin auto */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.qris-container p {
+    color: #e0e0e0;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.qris-container .small-text {
+    font-size: 0.9rem;
+    color: #aaa;
+    margin-top: 10px;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+    background-color: #00FF00; /* Tombol submit hijau Razer */
+    color: #000;
+}
+
+.btn-submit:hover {
+    background-color: #00AA00; /* Hover hijau lebih gelap */
+}
+
+footer {
+    background-color: rgba(30, 30, 30, 0.9);
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.5);
+    border-bottom-left-radius: 8px; /* Sudut melengkung untuk container */
+    border-bottom-right-radius: 8px; /* Ini akan diterapkan pada container jika footer di dalamnya */
+}

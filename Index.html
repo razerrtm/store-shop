@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Up Uang IC GTA SAMP Air Asia</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+
+    <main class="container">
+        <section id="hero">
+            <h2>Top Up Uang IC GTA SAMP Server Air Asia!</h2>
+            <p>Dapatkan uang IC (In-Character) untuk kebutuhanmu di game dengan cepat dan aman.</p>
+            <a href="#games" class="btn">Mulai Top Up Sekarang</a>
+        </section>
+
+        <section id="games">
+            <h2>Pilih Game Favoritmu</h2>
+            <div class="game-list">
+                <div class="game-card">
+                    <img src="foto/logo.png" alt="GTA SAMP">
+                    <h3>GTA SAMP - Server Air Asia</h3>
+                    <button class="btn-select-game" data-game="gtasamp">Top Up Sekarang</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="top-up-form">
+            <h2>Top Up <span id="selected-game-name"></span></h2>
+            <form>
+                <div class="form-group">
+                    <label for="game-name">Nama Karakter (IG Name):</label>
+                    <input type="text" id="game-name" name="game_name" placeholder="Masukkan Nama Karakter Anda (ex: John_Doe)" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="account-number">Nomor Rekening Game (In-Game Account Number):</label>
+                    <input type="text" id="account-number" name="account_number" placeholder="Masukkan Nomor Rekening In-Game Anda" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="min-level">Pilih Level Karakter Anda:</label>
+                    <select id="min-level" name="min_level" required>
+                        <option value="">-- Pilih Level --</option>
+                        </select>
+                    <p class="small-text" style="color:#f0f0f0; margin-top: 5px;">Pastikan level yang Anda pilih sesuai dengan level karakter Anda di game.</p>
+                </div>
+                <div class="form-group">
+                    <label for="denomination">Pilih Nominal Uang IC:</label>
+                    <select id="denomination" name="denomination" required>
+                        <option value="">-- Pilih Nominal --</option>
+                        <option value="100jt_1rb">100.000.000 IC (Rp 1.000)</option>
+                        <option value="200jt_2rb">200.000.000 IC (Rp 2.000)</option>
+                        <option value="500jt_5rb">500.000.000 IC (Rp 5.000)</option>
+                        <option value="1m_10rb">1.000.000.000 IC (Rp 10.000)</option>
+                        </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Metode Pembayaran:</label>
+                    <input type="text" id="payment-method-display" value="QRIS" readonly class="read-only-input">
+                    <input type="hidden" id="payment-method" name="payment_method" value="qris">
+                </div>
+
+                <div id="qris-image-container" class="qris-container">
+                    <p>Scan QRIS di bawah ini untuk pembayaran:</p>
+                    <img src="foto/qiris.jpg" alt="QRIS Pembayaran" class="qris-image">
+                    <p class="small-text">Pastikan jumlah yang ditransfer sesuai dengan nominal yang dipilih.</p>
+                </div>
+
+                <button type="submit" class="btn btn-submit">Lanjutkan ke Konfirmasi WhatsApp</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; RAZER RTM STORE</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const gameSelectionButtons = document.querySelectorAll('.btn-select-game');
+            const topUpFormSection = document.getElementById('top-up-form');
+            const selectedGameName = document.getElementById('selected-game-name');
+            const topUpForm = document.querySelector('#top-up-form form');
+            const qrisImageContainer = document.getElementById('qris-image-container');
+            const minLevelSelect = document.getElementById('min-level'); // Ambil elemen select level
+
+            // Fungsi untuk mengisi opsi level dari 10 sampai 100
+            function populateLevels() {
+                for (let i = 10; i <= 100; i++) {
+                    const option = document.createElement('option');
+                    option.value = i;
+                    option.textContent = `Level ${i}`;
+                    minLevelSelect.appendChild(option);
+                }
+            }
+
+            // Panggil fungsi untuk mengisi level saat DOM dimuat
+            populateLevels();
+
+            // Sembunyikan formulir top up dan kontainer QRIS saat halaman dimuat
+            topUpFormSection.style.display = 'none';
+            qrisImageContainer.style.display = 'none'; 
+
+            gameSelectionButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const game = this.getAttribute('data-game');
+                    let gameDisplayName = '';
+
+                    if (game === 'gtasamp') {
+                        gameDisplayName = 'GTA SAMP - Server Air Asia';
+                    }
+                    // Anda bisa menambahkan logika game lain jika suatu saat ditambahkan
+
+                    selectedGameName.textContent = gameDisplayName;
+                    topUpFormSection.style.display = 'block'; // Tampilkan formulir
+                    topUpFormSection.scrollIntoView({ behavior: 'smooth' }); // Gulir ke formulir
+                    qrisImageContainer.style.display = 'block'; // Tampilkan gambar QRIS saat formulir muncul
+                });
+            });
+
+            topUpForm.addEventListener('submit', function(e) {
+                e.preventDefault(); // Mencegah form untuk submit secara default
+
+                const gameName = document.getElementById('game-name').value;
+                const accountNumber = document.getElementById('account-number').value;
+                const selectedLevel = minLevelSelect.value; // Ambil nilai level yang dipilih
+                const denominationSelect = document.getElementById('denomination');
+                const denominationText = denominationSelect.options[denominationSelect.selectedIndex].textContent;
+                const paymentMethodText = "QRIS"; 
+
+                if (!gameName || !accountNumber || selectedLevel === "" || denominationSelect.value === "") {
+                    alert('Mohon lengkapi semua data formulir, pilih level, dan pilih nominal!');
+                    return;
+                }
+
+                // Nomor WhatsApp Anda
+                const phoneNumber = '6283193061252'; // Ganti dengan nomor Anda jika berbeda
+
+                // Membuat pesan yang akan otomatis terisi di WhatsApp
+                const message = `Halo, saya ingin top up uang IC GTA SAMP Server Air Asia.\n\n` +
+                                `*Detail Pesanan:*\n` +
+                                `Game: GTA SAMP - Server Air Asia\n` +
+                                `Nama Karakter: ${gameName}\n` +
+                                `Nomor Rekening Game: ${accountNumber}\n` +
+                                `Level Karakter: ${selectedLevel}\n` + // Tambahkan level ke pesan
+                                `Nominal: ${denominationText}\n` +
+                                `Metode Pembayaran: ${paymentMethodText}\n\n` +
+                                `Saya sudah scan QRIS dan mohon konfirmasi pesanan saya. Terima kasih!`;
+
+                // Mengenkode pesan agar aman untuk URL
+                const encodedMessage = encodeURIComponent(message);
+
+                // Membuat URL WhatsApp
+                const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+                // Mengalihkan ke WhatsApp
+                window.open(whatsappUrl, '_blank'); // Membuka di tab baru
+            });
+        });
+    </script>
+</body>
+</html>
